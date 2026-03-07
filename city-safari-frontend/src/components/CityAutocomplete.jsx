@@ -9,7 +9,7 @@ const CityAutocomplete = ({ value, onChange, placeholder, label }) => {
   const wrapperRef = useRef(null);
 
   // OpenWeather API key from environment variable
-  const OPENWEATHER_API_KEY = 'a098dd84820b25e918d1960b379378bc';
+  const OPENWEATHER_API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
   // Close suggestions when clicking outside
   useEffect(() => {
