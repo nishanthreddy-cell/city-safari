@@ -2,4 +2,5 @@ services:
   - type: web
     name: city-safari-backend
     env: docker
+    plan: free
     rootDir: city-safari-backend
