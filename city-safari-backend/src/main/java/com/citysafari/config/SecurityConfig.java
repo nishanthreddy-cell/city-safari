@@ -27,7 +27,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // Disable CSRF for API endpoints
             .cors(Customizer.withDefaults())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/**").permitAll() // Allow all API requests for now
+                .requestMatchers("/api/**", "/error").permitAll() // Allow all API requests and errors for now
                 .anyRequest().authenticated()
             );
         
