@@ -46,10 +46,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        // Split comma-separated property into individual origins (trimmed)
-        config.setAllowedOrigins(Arrays.stream(allowedOrigins.split(","))
-                .map(String::trim)
-                .toList());
+        config.setAllowedOriginPatterns(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowCredentials(true);
