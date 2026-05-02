@@ -319,7 +319,8 @@ const LoginPage = ({ setView, onLoginSuccess }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/auth/login', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+      const response = await fetch(`${apiUrl}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -425,7 +426,8 @@ const SignUpPage = ({ setView }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/auth/register', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+      const response = await fetch(`${apiUrl}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -559,7 +561,8 @@ const DestinationReportPage = ({ setView, destinationCity, fromCity, user }) => 
     setError(null);
     
     // Build URL with fromCity parameter if provided
-    let url = 'http://localhost:8080/api/report?city=' + encodeURIComponent(destinationCity);
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+    let url = `${apiUrl}/api/report?city=` + encodeURIComponent(destinationCity);
     if (fromCity && fromCity.trim()) {
       url += '&fromCity=' + encodeURIComponent(fromCity);
     }
